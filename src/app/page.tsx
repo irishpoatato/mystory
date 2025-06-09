@@ -44,7 +44,7 @@ export default function Home() {
           {/* Click Me Image */}
           <div className="absolute -bottom-12 -left-0 z-40">
             <Image 
-              src="/click me.png" 
+              src="click me.png" 
               alt="Click me arrow" 
               width={125} 
               height={125}
