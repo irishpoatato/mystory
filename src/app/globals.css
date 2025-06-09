@@ -1,0 +1,261 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Root Variables */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --folder-bg: 229, 231, 235;
+  --folder-tab: 209, 213, 219;
+  --folder-gradient-start: 255, 253, 251;  /* Light warm color */
+  --folder-gradient-end: 253, 251, 245;    /* Slightly more orange */
+  --folder-back-tint: 180, 160, 150, 0.4;  /* Very subtle warm tint */
+}
+
+/* Hide scrollbar for all elements */
+html, body, main, div {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar, 
+main::-webkit-scrollbar, 
+div::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Base Styles */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Component Styles */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  padding: 16px 4px;
+  margin-top: 8px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 12px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Folder Styles */
+.folder-back {
+  background: rgb(var(--folder-back-tint));
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.folder-cover {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--folder-gradient-start)) 0%,
+    rgb(var(--folder-gradient-end)) 100%
+  );
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  clip-path: polygon(
+    0 0,                    /* top-left */
+    40% 0,                 /* top-right before indent */
+    60% 15%,               /* mid point of indent */
+    100% 15%,             /* top-right after indent */
+    100% 100%,            /* bottom-right */
+    0 100%                /* bottom-left */
+  );
+  border-radius: 0 1.5rem 1.5rem 1.5rem;
+  position: relative;
+}
+
+/* Add decorative lines for folder indent */
+.folder-cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 20%;
+  height: 15%;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Left angled line */
+.folder-cover .angled-line-left {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 0;
+  height: 15%;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  transform-origin: top left;
+  /* Calculate the angle based on the folder's clip path */
+  transform: rotate(-62deg) scaleX(1.2);
+  pointer-events: none;
+}
+
+/* Right angled line */
+.folder-cover .angled-line-right {
+  content: '';
+  position: absolute;
+  top: 2%;
+  left: 60%;
+  width: 0;
+  height: 15%;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  transform-origin: top left;
+  transform: rotate(-60deg) scaleX(1.2);
+  pointer-events: none;
+}
+
+.folder-cover::after {
+  content: '';
+  position: absolute;
+  top: 14.5%;
+  left: 60%;
+  width: 40%;
+  height: 1px;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* For finer control, you can add these utility classes */
+.folder-cover.thin-lines .angled-line-left,
+.folder-cover.thin-lines .angled-line-right {
+  border-left-width: 1px;
+}
+
+.folder-cover.thin-lines::after {
+  height: 1px;
+}
+
+.folder-cover.thick-lines .angled-line-left,
+.folder-cover.thick-lines .angled-line-right {
+  border-left-width: 2px;
+}
+
+.folder-cover.thick-lines::after {
+  height: 2px;
+}
+
+/* Adjust line darkness */
+.folder-cover.dark-lines .angled-line-left,
+.folder-cover.dark-lines .angled-line-right {
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+
+.folder-cover.dark-lines::after {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.folder-cover.light-lines .angled-line-left,
+.folder-cover.light-lines .angled-line-right {
+  border-left-color: rgba(0, 0, 0, 0.1);
+}
+
+.folder-cover.light-lines::after {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Folder gradient overlays */
+.folder-cover .gradient-overlay-1 {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0.3) 60%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.folder-cover .gradient-overlay-2 {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    -45deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 245, 238, 0.1) 60%,
+    rgba(255, 235, 220, 0.2) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.nested-page-square {
+  background: white;
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.25rem;
+  color: rgb(var(--foreground-rgb));
+  transition: all 0.3s ease;
+}
+
+.nested-page-square a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nested-page-square::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 40px;
+  height: 6px;
+  background: rgb(var(--folder-bg));
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+@layer base {
+  .hover-effect {
+    transition: all 0.3s ease;
+  }
+
+  .hover-effect:hover {
+    transform: scale(1.05);
+  }
+} 

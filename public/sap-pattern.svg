@@ -1,0 +1,11 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M128 32L32 80V176L128 224L224 176V80L128 32Z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M32 80L128 128M128 128L224 80M128 128V224" stroke="currentColor" stroke-width="2"/>
+  <circle cx="128" cy="128" r="8" fill="currentColor"/>
+  <circle cx="32" cy="80" r="4" fill="currentColor"/>
+  <circle cx="224" cy="80" r="4" fill="currentColor"/>
+  <circle cx="128" cy="32" r="4" fill="currentColor"/>
+  <circle cx="128" cy="224" r="4" fill="currentColor"/>
+  <circle cx="32" cy="176" r="4" fill="currentColor"/>
+  <circle cx="224" cy="176" r="4" fill="currentColor"/>
+</svg> 
