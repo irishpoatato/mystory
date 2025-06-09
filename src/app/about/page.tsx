@@ -182,7 +182,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <Image
-                src="/profile2.png"
+                src="profile2.png"
                 alt="Profile"
                 fill
                 className="object-cover rounded-2xl"
