@@ -24,7 +24,7 @@ const experiences: Experience[] = [
     company: 'Amazon',
     period: 'Jan 2024 - Jan 2025',
     description: 'Thanks for stopping by. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-    logo: 'public/amazon_logo.png'
+    logo: '/amazon_logo.png'
   },
   {
     id: 'sap',
@@ -58,7 +58,7 @@ const experiences: Experience[] = [
     company: 'Apple',
     period: 'Jan 2023 - May 2023',
     description: 'Collaborated with design team on user interface improvements for iOS applications. Conducted user research and created interactive prototypes.',
-    logo: 'apple logo.png'
+    logo: '/apple logo.png'
   },
   {
     id: 'redDot',
@@ -66,7 +66,7 @@ const experiences: Experience[] = [
     company: 'Red Dot Payments',
     period: 'May 2022 - Dec 2022',
     description: 'Developed responsive web applications using React and TypeScript. Implemented payment integration systems and optimized performance.',
-    logo: 'rdp logo.png'
+    logo: '/rdp logo.png'
   }
 ];
 
